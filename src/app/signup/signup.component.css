@@ -1,0 +1,32 @@
+span > a {
+  color: #fc8016;
+}
+
+.form-group {
+  margin: 0;
+}
+
+.form-control {
+  height: 70px;
+}
+
+.referral {
+  height: 70px;
+}
+
+button {
+  background: #fc8016;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 54px;
+  border: none;
+  color: white;
+}
+
+.line {
+  height: 2px;
+  background: black;
+  width: 32px;
+  margin-top: 16px;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,13 @@
+button {
+  background: #fc8016;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 54px;
+  border: none;
+  color: white;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+}
