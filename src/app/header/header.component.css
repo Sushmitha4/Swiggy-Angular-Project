@@ -7,18 +7,25 @@ svg {
   margin-top: 10px;
 }
 
-#signupButton {
+#signupButton,
+#logoutButton {
   width: 120px;
   text-align: center;
   height: 40px;
   font-size: 18px;
   background: black;
   font-weight: 600;
+  color: white;
 }
 
-#loginButton {
+#loginButton,
+#profileButton {
   font-size: 18px;
   color: black;
   font-weight: 600;
   margin-right: 25px;
+}
+
+.nav-item {
+  padding-left: 2px;
 }

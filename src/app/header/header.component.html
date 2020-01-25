@@ -6,6 +6,7 @@
       />
     </svg>
   </a>
+
   <button
     class="navbar-toggler"
     type="button"
@@ -20,6 +21,11 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <a class="nav-link" id="profileButton" [routerLink]="['/profile']"
+          >Profile</a
+        >
+      </li>
+      <li class="nav-item">
         <a class="nav-link" id="loginButton" [routerLink]="['/login']">Login</a>
       </li>
       <li class="nav-item">
@@ -29,6 +35,9 @@
           [routerLink]="['/signup']"
           >Sign up</a
         >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="logoutButton" (click)="logOut()">Sign out</a>
       </li>
     </ul>
   </div>

@@ -3,6 +3,8 @@ import { NgForm } from "@angular/forms";
 import * as firebase from "firebase";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
+import { MyfireService } from "../services/myfire.service";
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: "app-login",
@@ -10,7 +12,12 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private toastr: ToastrService, private router: Router) {}
+  constructor(
+    private toastr: ToastrService,
+    private router: Router,
+    private myfire: MyfireService,
+    private userservice: UserService
+  ) {}
 
   ngOnInit() {}
 
@@ -22,9 +29,15 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then(userData => {
         if (userData.user.emailVerified) {
-          let message = `${email} has been successfully verified😄`;
-          this.toastr.success(message);
-          this.router.navigate([""]);
+          this.myfire
+            .getDataFromDatabase(userData.user.uid)
+            .then(getdatafromDataBase => {
+              this.userservice.set(getdatafromDataBase);
+              let message = `${email} has been successfully verified😄`;
+              this.toastr.success(message);
+              this.router.navigate(["/profile"]);
+            })
+            .catch(err => console.log(err));
         } else {
           let message = `${email} is not yet verified..😡`;
           this.toastr.error(message);

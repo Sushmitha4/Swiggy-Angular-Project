@@ -2,3 +2,12 @@
 
 /* regular style toast */
 @import "~ngx-toastr/toastr";
+
+.test .hide {
+  display: none;
+}
+
+/*h1 {
+  color: ;
+}
+*/

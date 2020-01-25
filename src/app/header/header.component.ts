@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "../services/user.service";
+import * as firebase from "firebase";
 
 @Component({
   selector: "app-header",
@@ -7,7 +9,12 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HeaderComponent implements OnInit {
   logo = "../../assets/images/swiggylogo.svg";
-  constructor() {}
+  constructor(private userservice: UserService) {}
 
   ngOnInit() {}
+
+  logout() {
+    this.userservice.destroy();
+    firebase.auth().signOut();
+  }
 }
